@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Site</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .accordion {
+    background-color: #eee;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+  }
+  .active, .accordion:hover {
+    background-color: #ddd;
+  }
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Mini Site</h1>
+  
+  <button class="accordion" onclick="toggleChapter('chapter1')">Chapitre 1</button>
+  <div class="panel" id="chapter1">
+    <img src="chapitre1-1.jpg" alt="Chapitre 1 - Image 1">
+    <img src="chapitre1-2.jpg" alt="Chapitre 1 - Image 2">
+    <img src="chapitre1-3.jpg" alt="Chapitre 1 - Image 3">
+    <img src="chapitre1-4.jpg" alt="Chapitre 1 - Image 4">
+  </div>
+  
+  <button class="accordion" onclick="toggleChapter('chapter2')">Chapitre 2</button>
+  <div class="panel" id="chapter2">
+    <img src="chapitre2-1.jpg" alt="Chapitre 2 - Image 1">
+    <img src="chapitre2-2.jpg" alt="Chapitre 2 - Image 2">
+    <img src="chapitre2-3.jpg" alt="Chapitre 2 - Image 3">
+    <img src="chapitre2-4.jpg" alt="Chapitre 2 - Image 4">
+  </div>
+  
+</div>
+
+<script>
+function toggleChapter(chapter) {
+  var panels = document.getElementsByClassName("panel");
+  var accordions = document.getElementsByClassName("accordion");
+  
+  for (var i = 0; i < panels.length; i++) {
+    panels[i].style.display = "none";
+    accordions[i].classList.remove("active");
+  }
+  
+  document.getElementById(chapter).style.display = "block";
+  event.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
+</html>
